@@ -1,4 +1,4 @@
-# RAG Pipeline with Weaviate, Groq, and FastAPI
+# RAG Pipeline with Weaviate, Groq, and FastAPI , Docker
 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
