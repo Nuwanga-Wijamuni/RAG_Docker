@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # This service is your FastAPI application
+  rag-api:
+    build: .  # This tells Compose to use your existing Dockerfile to build the service
+    container_name: rag-api-service
+    ports:
+      - "8081:8081"  # Exposes your app's port to your computer
+    env_file:
+      - .env         
+    volumes:
+      - ./:/app      
+    depends_on:
+      - weaviate     
+
+  # This service is your local Weaviate database
+  weaviate:
+    # This uses the exact Weaviate image version you already have
+    image: cr.weaviate.io/semitechnologies/weaviate:1.31.1
+    container_name: weaviate-database
+    ports:
+      - "8080:8080" 
+      - "50051:50051"
+    volumes:
+      - weaviate_data:/var/lib/weaviate # Saves your database data permanently
+    environment:
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      DEFAULT_VECTORIZER_MODULE: 'none'
+      CLUSTER_HOSTNAME: 'weaviate'
+
+# This creates the volume for persistent database storage
+volumes:
+  weaviate_data:

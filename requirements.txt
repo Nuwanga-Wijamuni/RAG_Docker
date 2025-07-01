@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+weaviate-client
+groq
+python-dotenv
+PyMuPDF
+sentence-transformers
+python-multipart  # <-- FIX 1: Added for file uploads
+numpy<2.0

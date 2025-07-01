@@ -1,0 +1,21 @@
+# Python virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+wheels/
+
+# Environment variables (IMPORTANT: Never commit secrets)
+.env
+
+# Session data
+sessions.json
+
+# IDE/Editor specific settings
+.idea/
+.vscode/
